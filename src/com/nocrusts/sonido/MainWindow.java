@@ -5,6 +5,7 @@ import java.awt.*;
 
 public class MainWindow extends JFrame {
     private JPanel MainPanel;
+    private JSlider slider1;
 
     public MainWindow(String title) throws HeadlessException {
         super(title);
