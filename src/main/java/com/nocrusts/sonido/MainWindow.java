@@ -12,28 +12,20 @@ public class MainWindow {
     private JButton FileChooser;
     private JLabel RemTime;
     private JLabel ElpTime;
+    private JLabel SongName;
 
     public MainWindow() {
 
-        FileChooser.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-
-            }
-        });
-
-        PlayPause.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-
-            }
-        });
     }
 
     public static void main(String[] args) {
         //Java silver buttons suck, so let's use a native version.
+        //Thanks Brinker
+
+
         try {
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+            //UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+
             //aware that this breaks if gnome is not in use, whatever.
         } catch (Exception e) {
             System.out.println("Failed to set L&F, skipping...");
