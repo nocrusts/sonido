@@ -18,8 +18,7 @@ public class MainWindow {
 
     }
 
-    public static void main(String[] args) {
-        //Java silver buttons suck, so let's use a native version.
+    public static void main(String[] args){
         //Thanks Brinker
 
 
