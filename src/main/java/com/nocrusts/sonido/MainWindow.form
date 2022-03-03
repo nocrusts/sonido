@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.nocrusts.sonido.MainWindow">
-  <grid id="27dc6" binding="MainPanel" layout-manager="GridLayoutManager" row-count="4" column-count="5" same-size-horizontally="true" same-size-vertically="true" hgap="-1" vgap="-1">
-    <margin top="5" left="5" bottom="5" right="5"/>
+  <grid id="27dc6" binding="MainPanel" layout-manager="GridBagLayout">
     <constraints>
-      <xy x="20" y="296" width="636" height="635"/>
+      <xy x="33" y="20" width="608" height="413"/>
     </constraints>
     <properties/>
     <border type="none" title=""/>
     <children>
       <component id="5e9b5" class="javax.swing.JLabel" binding="ElpTime">
         <constraints>
-          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="0" row-span="4" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+          <gridbag top="2" left="5" bottom="2" right="2" weightx="0.2" weighty="0.2"/>
         </constraints>
         <properties>
           <text value="Elapsed"/>
@@ -18,23 +18,17 @@
       </component>
       <component id="71888" class="javax.swing.JLabel" binding="RemTime">
         <constraints>
-          <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="1" row-span="4" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <gridbag top="2" left="2" bottom="2" right="2" weightx="0.2" weighty="0.2"/>
         </constraints>
         <properties>
           <text value="Remaining"/>
         </properties>
       </component>
-      <component id="833bf" class="javax.swing.JButton" binding="PlayPause">
-        <constraints>
-          <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Button"/>
-        </properties>
-      </component>
       <component id="990f9" class="javax.swing.JSlider" binding="PosSlider">
         <constraints>
-          <grid row="1" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="3" row-span="2" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+          <gridbag top="2" left="2" bottom="2" right="2" weightx="0.2" weighty="0.2"/>
         </constraints>
         <properties>
           <extent value="0"/>
@@ -49,40 +43,53 @@
           <valueIsAdjusting value="false"/>
         </properties>
       </component>
-      <component id="b09a6" class="javax.swing.JButton" binding="NextButton">
+      <component id="b09a6" class="javax.swing.JButton" binding="PlayPauseButton">
         <constraints>
-          <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="5" row-span="4" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <gridbag top="2" left="2" bottom="2" right="2" weightx="0.2" weighty="0.2"/>
         </constraints>
         <properties>
-          <text value="Button"/>
-        </properties>
-      </component>
-      <component id="3aa4b" class="javax.swing.JButton" binding="BackButton">
-        <constraints>
-          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="BackButton"/>
+          <text value="PlayPause"/>
         </properties>
       </component>
       <component id="ba9b2" class="javax.swing.JLabel" binding="SongName">
         <constraints>
-          <grid row="0" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <gridbag top="2" left="2" bottom="2" right="2" weightx="0.2" weighty="0.2"/>
         </constraints>
         <properties>
-          <text value="Now Playing: "/>
+          <text value="Drag audio files here to play them."/>
           <verticalAlignment value="0"/>
           <verticalTextPosition value="0"/>
         </properties>
       </component>
-      <component id="4b0e" class="javax.swing.JButton" binding="FileChooser">
+      <vspacer id="27e2a">
         <constraints>
-          <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+          <gridbag top="2" left="2" bottom="2" right="2" weightx="0.2" weighty="0.2"/>
+        </constraints>
+      </vspacer>
+      <component id="3aa3c" class="javax.swing.JButton" binding="FileButton">
+        <constraints>
+          <grid row="0" column="6" row-span="4" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <gridbag top="2" left="2" bottom="2" right="5" weightx="0.2" weighty="0.2"/>
         </constraints>
         <properties>
-          <text value="Open"/>
+          <text value="SelectFile"/>
         </properties>
       </component>
+      <hspacer id="5d247">
+        <constraints>
+          <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <gridbag top="2" left="2" bottom="2" right="2" weightx="0.2" weighty="0.2"/>
+        </constraints>
+      </hspacer>
+      <hspacer id="5e17e">
+        <constraints>
+          <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <gridbag top="2" left="2" bottom="2" right="2" weightx="0.2" weighty="0.2"/>
+        </constraints>
+      </hspacer>
     </children>
   </grid>
 </form>

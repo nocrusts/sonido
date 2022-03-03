@@ -4,19 +4,17 @@ import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
 
-import com.formdev.flatlaf.*;
+//import com.formdev.flatlaf.*;
 
 public class MainWindow {
 
     private JPanel MainPanel;
     private JSlider PosSlider;
-    private JButton PlayPause;
-    private JButton FileChooser;
     private JLabel RemTime;
     private JLabel ElpTime;
-    private JButton NextButton;
-    private JButton BackButton;
+    private JButton PlayPauseButton;
     private JLabel SongName;
+    private JButton FileButton;
 
     public MainWindow() {
 
@@ -25,11 +23,25 @@ public class MainWindow {
     public static void main(String[] args) {
 
         try {
-            UIManager.setLookAndFeel(new FlatLightLaf());
-
-        } catch (Exception ex) {
-            System.err.println("Failed to initialize LaF");
+            // Set System L&F
+            UIManager.setLookAndFeel(
+                    UIManager.getSystemLookAndFeelClassName());
+        } catch (UnsupportedLookAndFeelException e) {
+            // handle exception
+        } catch (ClassNotFoundException e) {
+            // handle exception
+        } catch (InstantiationException e) {
+            // handle exception
+        } catch (IllegalAccessException e) {
+            // handle exception
         }
+
+//        try {
+//            UIManager.setLookAndFeel(new FlatLightLaf());
+//
+//        } catch (Exception ex) {
+//            System.err.println("Failed to initialize LaF");
+//        }
 
         JFrame frame = new JFrame("MainWindow");
         frame.setContentPane(new MainWindow().MainPanel);
@@ -58,17 +70,31 @@ public class MainWindow {
      */
     private void $$$setupUI$$$() {
         MainPanel = new JPanel();
-        MainPanel.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(4, 5, new Insets(5, 5, 5, 5), -1, -1, true, true));
+        MainPanel.setLayout(new GridBagLayout());
         MainPanel.setBorder(BorderFactory.createTitledBorder(null, "", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null));
         ElpTime = new JLabel();
         ElpTime.setText("Elapsed");
-        MainPanel.add(ElpTime, new com.intellij.uiDesigner.core.GridConstraints(1, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_EAST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        GridBagConstraints gbc;
+        gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.gridheight = 4;
+        gbc.weightx = 0.2;
+        gbc.weighty = 0.2;
+        gbc.anchor = GridBagConstraints.EAST;
+        gbc.insets = new Insets(2, 5, 2, 2);
+        MainPanel.add(ElpTime, gbc);
         RemTime = new JLabel();
         RemTime.setText("Remaining");
-        MainPanel.add(RemTime, new com.intellij.uiDesigner.core.GridConstraints(1, 4, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        PlayPause = new JButton();
-        PlayPause.setText("Button");
-        MainPanel.add(PlayPause, new com.intellij.uiDesigner.core.GridConstraints(2, 2, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        gbc = new GridBagConstraints();
+        gbc.gridx = 1;
+        gbc.gridy = 0;
+        gbc.gridheight = 4;
+        gbc.weightx = 0.2;
+        gbc.weighty = 0.2;
+        gbc.anchor = GridBagConstraints.WEST;
+        gbc.insets = new Insets(2, 2, 2, 2);
+        MainPanel.add(RemTime, gbc);
         PosSlider = new JSlider();
         PosSlider.setExtent(0);
         PosSlider.setInverted(false);
@@ -80,21 +106,83 @@ public class MainWindow {
         PosSlider.setSnapToTicks(false);
         PosSlider.setValue(0);
         PosSlider.setValueIsAdjusting(false);
-        MainPanel.add(PosSlider, new com.intellij.uiDesigner.core.GridConstraints(1, 1, 1, 3, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_WEST, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        NextButton = new JButton();
-        NextButton.setText("Button");
-        MainPanel.add(NextButton, new com.intellij.uiDesigner.core.GridConstraints(2, 3, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        BackButton = new JButton();
-        BackButton.setText("BackButton");
-        MainPanel.add(BackButton, new com.intellij.uiDesigner.core.GridConstraints(2, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        gbc = new GridBagConstraints();
+        gbc.gridx = 3;
+        gbc.gridy = 1;
+        gbc.gridheight = 2;
+        gbc.weightx = 0.2;
+        gbc.weighty = 0.2;
+        gbc.anchor = GridBagConstraints.WEST;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.insets = new Insets(2, 2, 2, 2);
+        MainPanel.add(PosSlider, gbc);
+        PlayPauseButton = new JButton();
+        PlayPauseButton.setText("PlayPause");
+        gbc = new GridBagConstraints();
+        gbc.gridx = 5;
+        gbc.gridy = 0;
+        gbc.gridheight = 4;
+        gbc.weightx = 0.2;
+        gbc.weighty = 0.2;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.insets = new Insets(2, 2, 2, 2);
+        MainPanel.add(PlayPauseButton, gbc);
         SongName = new JLabel();
-        SongName.setText("Now Playing: ");
+        SongName.setText("Drag audio files here to play them.");
         SongName.setVerticalAlignment(0);
         SongName.setVerticalTextPosition(0);
-        MainPanel.add(SongName, new com.intellij.uiDesigner.core.GridConstraints(0, 1, 1, 3, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        FileChooser = new JButton();
-        FileChooser.setText("Open");
-        MainPanel.add(FileChooser, new com.intellij.uiDesigner.core.GridConstraints(3, 2, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        gbc = new GridBagConstraints();
+        gbc.gridx = 3;
+        gbc.gridy = 0;
+        gbc.weightx = 0.2;
+        gbc.weighty = 0.2;
+        gbc.insets = new Insets(2, 2, 2, 2);
+        MainPanel.add(SongName, gbc);
+        final JPanel spacer1 = new JPanel();
+        gbc = new GridBagConstraints();
+        gbc.gridx = 3;
+        gbc.gridy = 3;
+        gbc.weightx = 0.2;
+        gbc.weighty = 0.2;
+        gbc.fill = GridBagConstraints.VERTICAL;
+        gbc.insets = new Insets(2, 2, 2, 2);
+        MainPanel.add(spacer1, gbc);
+        FileButton = new JButton();
+        FileButton.setText("SelectFile");
+        gbc = new GridBagConstraints();
+        gbc.gridx = 6;
+        gbc.gridy = 0;
+        gbc.gridheight = 4;
+        gbc.weightx = 0.2;
+        gbc.weighty = 0.2;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.insets = new Insets(2, 2, 2, 5);
+        MainPanel.add(FileButton, gbc);
+        final JPanel spacer2 = new JPanel();
+        gbc = new GridBagConstraints();
+        gbc.gridx = 2;
+        gbc.gridy = 1;
+        gbc.weightx = 0.2;
+        gbc.weighty = 0.2;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.insets = new Insets(2, 2, 2, 2);
+        MainPanel.add(spacer2, gbc);
+        final JPanel spacer3 = new JPanel();
+        gbc = new GridBagConstraints();
+        gbc.gridx = 4;
+        gbc.gridy = 1;
+        gbc.weightx = 0.2;
+        gbc.weighty = 0.2;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.insets = new Insets(2, 2, 2, 2);
+        MainPanel.add(spacer3, gbc);
+        final JScrollPane scrollPane1 = new JScrollPane();
+        gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 4;
+        gbc.gridwidth = 7;
+        gbc.fill = GridBagConstraints.BOTH;
+        MainPanel.add(scrollPane1, gbc);
     }
 
     /**
